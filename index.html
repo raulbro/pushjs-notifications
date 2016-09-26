@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Push Notifications</title>
+</head>
+<body>
+    <button id="btn">
+        Push Notification
+    </button>
+	<script src="js/push.min.js"></script>
+	<script>
+        var btn = document.getElementById('btn');
+        btn.addEventListener('click', function(){
+            Push.create("Hello world!",{
+                body: "Redirect to google",
+                icon: "icon/RaulR.jpg",
+                timeout: 4000,
+                onClick: function()
+                {
+                    window.location = "https://google.com"
+                }
+            });
+        });
+
+		Push.create("Hello world!",{
+            body: "Little demonstration on push.js, click to close.",
+            icon: "icon/RaulR.jpg",
+            timeout: 4000,
+            onClick: function()
+            {
+                this.close();
+            }
+        });
+	</script>
+    <div class="class1"></div>
+</body>
+</html>
